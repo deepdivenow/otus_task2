@@ -1,8 +1,11 @@
 language: cpp
 before_script:
   - sudo apt-get install libgtest-dev cmake -y
-  - sudo cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make
+  - cd /usr/src/gtest 
+  - sudo cmake CMakeLists.txt 
+  - sudo make
   - sudo cp /usr/src/gtest/*.a /usr/lib
+  - cd "${TRAVIS_BUILD_DIR}"
 script:
   - cmake .
   - cmake --build .
