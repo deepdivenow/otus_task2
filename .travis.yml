@@ -5,7 +5,7 @@ env:
     - BINTRAY_USER=deepdivenow
     - BINTRAY_REPO=otus
 before_script:
-  - sudo apt-get install libgtest-dev cmake -y
+  - sudo apt-get install libgtest-dev libboost-test-dev -y
   - cd /usr/src/gtest 
   - sudo cmake .
   - sudo cmake --build .
