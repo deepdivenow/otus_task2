@@ -1,8 +1,9 @@
 language: cpp
 env:
-  - CPACK_PACKAGE_NAME = ip_filter
-  - BINTRAY_USER = deepdivenow
-  - BINTRAY_REPO = otus
+  global:
+    - CPACK_PACKAGE_NAME = ip_filter
+    - BINTRAY_USER = deepdivenow
+    - BINTRAY_REPO = otus
 before_script:
   - sudo apt-get install libgtest-dev cmake -y
   - cd /usr/src/gtest 
