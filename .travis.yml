@@ -7,9 +7,9 @@ env:
 before_script:
   - sudo apt-get install libgtest-dev cmake -y
   - cd /usr/src/gtest 
-  - sudo cmake CMakeLists.txt 
-  - sudo make
-  - sudo cp /usr/src/gtest/*.a /usr/lib
+  - sudo cmake .
+  - sudo cmake --build .
+  - sudo cmake --build . --target install
   - cd "${TRAVIS_BUILD_DIR}"
 script:
   - cmake .
