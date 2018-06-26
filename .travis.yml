@@ -9,6 +9,7 @@ before_script:
   - cd /usr/src/gtest 
   - sudo cmake .
   - sudo cmake --build .
+  - grep -i install Makefile
   - sudo cmake --build . --target install
   - cd "${TRAVIS_BUILD_DIR}"
 script:
