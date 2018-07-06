@@ -12,13 +12,13 @@ namespace
 //     size_t bin_id(size_t x)
     {
         if (x < 2) {return 0;}
-        auto y=x;
+        size_t y=x;
         size_t i=0;
         while (y>1){
             y=y>>1;
             i++;
         }
-        if (x > 1<<i ){
+        if (x > 1u<<i ){
             return i+1;
         } else {
             return i;
