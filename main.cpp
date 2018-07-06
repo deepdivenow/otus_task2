@@ -44,7 +44,7 @@ int main() {
                 uint32_t hash=a.get_raw()&mask[i].get_raw();
                 if (hash == c[i].get_raw()) {
                     std::cout << a << std::endl;
-                    continue;
+                    break;
                 }
             }
         }
