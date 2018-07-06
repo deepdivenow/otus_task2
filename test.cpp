@@ -5,6 +5,7 @@
 #include "test.h"
 #include "gtest/gtest.h"
 #include "ipaddr.h"
+#include <iostream>
 #include <sstream>
 
 TEST (IpAddr, InputTest) {
@@ -27,6 +28,14 @@ TEST (IpAddr, OutputTest) {
     addr_t  a{11,22,33,44};
     ss << a;
     EXPECT_TRUE ( (ss.str() == std::string("11.22.33.44") ) );
+}
+
+TEST (IpAddr, Binary_compare) {
+    addr_t  a{46,70,0,0};
+    addr_t  b{46,70,225,39};
+    addr_t mask{255,255,0,0};
+    uint32_t d = b.get_raw()&mask.get_raw();
+    EXPECT_TRUE ( (a.get_raw() == d ) );
 }
 
 int main(int argc, char **argv) {

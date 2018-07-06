@@ -28,7 +28,9 @@ std::istream& operator>>(std::istream& stream, addr_t& addr) ;
 bool operator== (const addr_t& lhs, const addr_t& rhs);
 
 bool operator< (const addr_t& lhs, const addr_t& rhs);
+bool operator<= (const addr_t& lhs, const addr_t& rhs);
 
 bool operator> (const addr_t& lhs, const addr_t& rhs);
+bool operator>= (const addr_t& lhs, const addr_t& rhs);
 
 

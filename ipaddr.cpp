@@ -69,8 +69,16 @@ bool operator< (const addr_t& lhs, const addr_t& rhs){
     return lhs.get_raw() < rhs.get_raw();
 }
 
+bool operator<= (const addr_t& lhs, const addr_t& rhs){
+    return lhs < rhs || lhs == rhs;
+}
+
 bool operator> (const addr_t& lhs, const addr_t& rhs){
     return lhs.get_raw() > rhs.get_raw();
+}
+
+bool operator>= (const addr_t& lhs, const addr_t& rhs){
+    return lhs > rhs || lhs == rhs;
 }
 
 //    addr_t& operator= (const addr_t& addr){
