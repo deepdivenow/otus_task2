@@ -81,6 +81,12 @@ bool operator>= (const addr_t& lhs, const addr_t& rhs){
     return lhs > rhs || lhs == rhs;
 }
 
+bool compare_by_mask(const addr_t& lhs, const addr_t& rhs, const addr_t& mask){
+    uint32_t lhs_raw_by_mask = lhs.get_raw()&mask.get_raw();
+    uint32_t rhs_raw_by_mask = rhs.get_raw()&mask.get_raw();
+    return lhs_raw_by_mask == rhs_raw_by_mask;
+}
+
 //    addr_t& operator= (const addr_t& addr){
 //        return *this;
 //    }

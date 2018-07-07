@@ -28,21 +28,17 @@ int main() {
         addr_t c{46,70,0,0};
         addr_t mask{255,255,0,0};
         for (const auto& a : db){
-            auto hash=a.get_raw()&mask.get_raw();
-            if (hash == c.get_raw()) {
+            if (compare_by_mask(a,c,mask)) {
                 std::cout << a << std::endl;
             }
         }
-
     }
     {
-        uint16_t num = 46;
-        std::vector<addr_t> c{{num,0,0,0},{0,num,0,0},{0,0,num,0},{0,0,0,num}};
+        addr_t c{46,46,46,46};
         std::vector<addr_t> mask{{255,0,0,0},{0,255,0,0},{0,0,255,0},{0,0,0,255}};
         for (const auto& a : db){
             for (size_t i=0;i<4;i++) {
-                uint32_t hash=a.get_raw()&mask[i].get_raw();
-                if (hash == c[i].get_raw()) {
+                if (compare_by_mask(a,c,mask[i])) {
                     std::cout << a << std::endl;
                     break;
                 }

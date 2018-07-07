@@ -33,4 +33,6 @@ bool operator<= (const addr_t& lhs, const addr_t& rhs);
 bool operator> (const addr_t& lhs, const addr_t& rhs);
 bool operator>= (const addr_t& lhs, const addr_t& rhs);
 
+bool compare_by_mask(const addr_t& lhs, const addr_t& rhs, const addr_t& mask);
+
 
