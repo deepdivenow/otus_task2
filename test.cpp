@@ -17,7 +17,7 @@ TEST (IpAddr, InputTest) {
 }
 
 TEST (IpAddr, InputTest2) {
-    addr_t  a{std::array<uint16_t, 4>{1,11,111,1}};
+    addr_t  a{std::array<uint8_t, 4>{1,11,111,1}};
     addr_t  b(1,11,111,1);
     EXPECT_TRUE ( (a == b) );
     EXPECT_TRUE ( (a.get_raw() == 17526529 ) );

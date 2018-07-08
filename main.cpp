@@ -25,6 +25,15 @@ int main() {
         std::cout << a << std::endl;
     }
     {
+        addr_t c{1,0,0,0};
+        addr_t mask{255,0,0,0};
+        for (const auto& a : db){
+            if (compare_by_mask(a,c,mask)) {
+                std::cout << a << std::endl;
+            }
+        }
+    }
+    {
         addr_t c{46,70,0,0};
         addr_t mask{255,255,0,0};
         for (const auto& a : db){
@@ -37,8 +46,8 @@ int main() {
         addr_t c{46,46,46,46};
         std::vector<addr_t> mask{{255,0,0,0},{0,255,0,0},{0,0,255,0},{0,0,0,255}};
         for (const auto& a : db){
-            for (size_t i=0;i<4;i++) {
-                if (compare_by_mask(a,c,mask[i])) {
+            for (const auto& m:mask) {
+                if (compare_by_mask(a,c,m)) {
                     std::cout << a << std::endl;
                     break;
                 }

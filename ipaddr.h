@@ -13,8 +13,8 @@
 class addr_t{
 public:
     addr_t () {}
-    addr_t (const std::array<uint16_t, 4>& arr );
-    addr_t (uint16_t a, uint16_t b, uint16_t c, uint16_t d);
+    explicit addr_t (const std::array<uint8_t, 4>& arr );
+    addr_t (uint8_t a, uint8_t b, uint8_t c, uint8_t d);
 
     unsigned long get_raw() const;
 private:
