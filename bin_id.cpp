@@ -9,7 +9,6 @@
 namespace
 {
     constexpr size_t bin_id(size_t x)
-//     size_t bin_id(size_t x)
     {
         if (x < 2) {return 0;}
         size_t y=x;
@@ -23,13 +22,6 @@ namespace
         } else {
             return i;
         }
-//        int min=1<<(i-1);
-//        int max=1<<i;
-//        if (max-x < x-min) {
-//            return i;
-//        } else {
-//            return i-1;
-//        }
         return i; // Never run
     }
 
