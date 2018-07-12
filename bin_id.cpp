@@ -8,21 +8,15 @@
 // Реализовать constexpr функцию bin_id - определения ближайшей большей степени двойки
 namespace
 {
-    constexpr size_t bin_id(size_t x)
+    constexpr size_t bin_id(const size_t x)
     {
-        if (x < 2) {return 0;}
-        size_t y=x;
-        size_t i=0;
-        while (y>1){
-            y=y>>1;
-            i++;
-        }
-        if (x > 1u<<i ){
-            return i+1;
+        if(x<2) {return 0;}
+        size_t power = log2(x);
+        if (x == pow(2,power)) {
+            return power;
         } else {
-            return i;
+            return power+1;
         }
-        return i; // Never run
     }
 
     BOOST_STATIC_ASSERT(bin_id(0) == 0);
