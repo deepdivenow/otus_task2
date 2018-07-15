@@ -6,21 +6,12 @@
 
 addr_t::addr_t (const std::array<uint8_t, 4>& arr ) {
     for (const auto& a : arr){
-        if (0 <= (uint8_t)a <= 255){
-            addr_ = addr_ << 8 | (unsigned)a ;
-        } else {
-            throw std::logic_error("Wrong ip addr number" ); //Need add wrong date string
-        }
+        addr_ = addr_ << 8 | (unsigned)a ;
     }
 }
 
 addr_t::addr_t(uint8_t a, uint8_t b, uint8_t c, uint8_t d) {
-    if ((0 <= (unsigned)a <= 255) && (0 <= (unsigned)b <= 255) &&
-        (0 <= (unsigned)c <= 255) && (0 <= (unsigned)d <= 255)) {
-        addr_ = ((unsigned)a << 24) | ((unsigned)b << 16) | ((unsigned)c << 8) | (unsigned)d;
-    } else {
-        throw std::logic_error("Wrong ip addr number"); // add wrong addr string
-    }
+    addr_ = ((unsigned)a << 24) | ((unsigned)b << 16) | ((unsigned)c << 8) | (unsigned)d;
 }
 
 unsigned long addr_t::get_raw() const {

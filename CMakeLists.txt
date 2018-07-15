@@ -1,17 +1,22 @@
 cmake_minimum_required(VERSION 3.9)
 project(pr_ip_filter VERSION 0.0.0$ENV{TRAVIS_BUILD_NUMBER})
+message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+set(CMAKE_CXX_FLAGS "-Wpedantic -Wall -Wextra")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
+set(CXX_STANDARD_REQUIRED ON)
 
 add_executable(ip_filter main.cpp ipaddr.cpp ipaddr.h)
 add_executable(bin_id bin_id.cpp)
 add_executable(test_ip_filter test.cpp test.h ipaddr.cpp ipaddr.h)
 
-set_target_properties(ip_filter test_ip_filter bin_id PROPERTIES
-        CXX_STANDARD 14
-        CXX_STANDARD_REQUIRED ON
-        COMPILE_OPTIONS -Wpedantic -Wall -Wextra
-        )
+#set_target_properties(ip_filter test_ip_filter bin_id PROPERTIES
+#        CXX_STANDARD 17
+#        CXX_STANDARD_REQUIRED ON
+#        COMPILE_OPTIONS -Wpedantic -Wall -Wextra
+#        )
 
 find_package(GTest REQUIRED)
 
