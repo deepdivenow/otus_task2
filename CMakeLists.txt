@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.9)
 project(pr_ip_filter VERSION 0.0.0$ENV{TRAVIS_BUILD_NUMBER})
-set(default_build_type "Release")
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Release" CACHE STRING
+            "Choose the type of build, options are: Debug Release RelWithDebInfo MinSizeRel."
+            FORCE)
+endif(NOT CMAKE_BUILD_TYPE)
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 set(CMAKE_CXX_FLAGS "-Wpedantic -Wall -Wextra")
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
