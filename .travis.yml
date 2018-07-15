@@ -13,8 +13,8 @@ before_script:
   - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 90
   - sudo apt-get install libgtest-dev libboost-test-dev cmake -y
   - cd /usr/src/gtest 
-  - sudo cmake -DCMAKE_BUILD_TYPE=Release .
-  - sudo cmake -DCMAKE_BUILD_TYPE=Release --build .
+  - sudo cmake .
+  - sudo cmake --build .
   - sudo cp /usr/src/gtest/*.a /usr/lib
   - cd "${TRAVIS_BUILD_DIR}"
 script:
